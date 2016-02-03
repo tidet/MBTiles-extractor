@@ -17,14 +17,14 @@ def setDir(d):
 ######################################
 # Let's do shit
 
-if not len(sys.argv) == 2:
-  print 'Please provide exactly 1 parameter - the mbtiles input filename'
-  exit()
+#if not len(sys.argv) == 2:
+# print 'Please provide exactly 1 parameter - the mbtiles input filename'
+# exit()
 
 # Process input
 input_filename = sys.argv[1]
 dirname = input_filename[0:input_filename.index('.')]
-print 'Converting file "%s" into tiles in local directory "%s"' % (input_filename, dirname)
+#print 'Converting file "%s" into tiles in local directory "%s"' % (input_filename, dirname)
 
 # This will fail if there is already a directory.
 # I could make a better error message, but I intend for this to fail,
@@ -44,7 +44,7 @@ if img_format:
     elif img_format[0] == 'jpg':
         out_format = '.jpg'
 else:
-    out_format = ''
+    out_format = '.png'
 
 # The mbtiles format helpfully provides a table that aggregates all necessary info
 cursor.execute('SELECT * FROM tiles')
@@ -59,4 +59,4 @@ for row in cursor:
   os.chdir('..')
   os.chdir('..')
 
-print 'Done!'
+#print 'Done!'
